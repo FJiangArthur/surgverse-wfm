@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { FileText, ExternalLink, Download } from "lucide-react"
+import { FileText, ExternalLink, ArrowRight } from "lucide-react"
 
 function VideoPlayer({ src, label }: { src: string; label: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -48,57 +48,86 @@ function ImageDisplay({ src, label }: { src: string; label: string }) {
 export default function HeroSection() {
   return (
     <section className="relative w-full bg-white border-b border-border">
-      {/* Top navigation bar */}
-      <div className="border-b border-border bg-card">
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 py-2 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">CVPR 2026</span>
-            <nav className="hidden md:flex gap-4">
-              <a href="#abstract" className="text-sm text-foreground hover:text-secondary transition-colors">Abstract</a>
-              <a href="#method" className="text-sm text-foreground hover:text-secondary transition-colors">Method</a>
-              <a href="#results" className="text-sm text-foreground hover:text-secondary transition-colors">Results</a>
-            </nav>
-          </div>
-          <div className="flex gap-3">
-            <button className="text-xs font-medium text-secondary hover:underline flex items-center gap-1">
-              <Download className="w-3 h-3" /> Paper
-            </button>
-            <button className="text-xs font-medium text-secondary hover:underline flex items-center gap-1">
-              <ExternalLink className="w-3 h-3" /> Code
-            </button>
-          </div>
+      <div className="max-w-5xl mx-auto px-4 lg:px-8 py-12 lg:py-16">
+        {/* Institution logos */}
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-4 mb-8">
+          <img src="/logos/intuitive-surgical.png" alt="Intuitive Surgical" className="h-8 w-auto" />
+          <img src="/logos/nvidia.png" alt="NVIDIA" className="h-8 w-auto" />
+          <img src="/logos/jhu.png" alt="Johns Hopkins University" className="h-8 w-auto" />
         </div>
+
+        {/* Title */}
+        <h1 className="text-4xl lg:text-6xl font-bold text-slate-800 leading-tight mb-6">
+          Surgverse: Video World Foundation Models for Surgery
+        </h1>
+
+        {/* Decorative line */}
+        <div className="w-16 h-1 bg-teal-600 mb-6"></div>
+
+        {/* Subtitle */}
+        <p className="text-xl lg:text-2xl text-slate-500 leading-relaxed mb-8 max-w-4xl">
+          Augmented Situational Awareness and Dexterity in Robot-Assisted Surgeries through Foundation Model Post-Training
+        </p>
+
+        {/* Authors */}
+        <div className="mb-2">
+          <p className="text-base text-slate-700 leading-relaxed">
+            Ruixing Liang<sup>1,3,4*</sup>,
+            Zhaoshuo Li<sup>2</sup>,
+            Qian Luo<sup>2</sup>,
+            Fengyi Jiang<sup>1</sup>,
+            Xiaorui Zhang<sup>1</sup>,
+            Lingbo Jin<sup>1</sup>,
+            Sierra Bonilla<sup>1</sup>,
+            Hongchao Shu<sup>4</sup>,
+            Zhuohong He<sup>1</sup>,
+            Chinedu Nwoye<sup>1</sup>,
+            Adam Schmidt<sup>1</sup>,
+            Jingpei Lu<sup>1</sup>,
+            Abdullah Jamal<sup>1</sup>,
+            Omid Mohareri<sup>1</sup>
+          </p>
+        </div>
+
+        {/* Institution legend */}
+        <p className="text-sm text-slate-400 mb-2">
+          <sup>1</sup>Intuitive Surgical · <sup>2</sup>Johns Hopkins University · <sup>3</sup>NVIDIA · <sup>4</sup>University of Maryland
+        </p>
+        <p className="text-xs text-slate-400 italic mb-10">
+          *Work done during internship at Intuitive Surgical
+        </p>
+
+        {/* Action buttons */}
+        <div className="flex flex-wrap gap-4 mb-12">
+          <a
+            href="#paper"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white text-base font-medium rounded-lg hover:bg-teal-700 transition-all"
+          >
+            <FileText className="w-5 h-5" />
+            Read Full Paper
+          </a>
+          <a
+            href="#results"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-300 text-slate-700 text-base font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
+          >
+            Explore SurgBench
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <a
+            href="#code"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-300 text-slate-700 text-base font-medium rounded-lg hover:border-slate-400 hover:bg-slate-50 transition-all"
+          >
+            <ExternalLink className="w-5 h-5" />
+            View Code
+          </a>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-slate-200"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-6">
-        {/* Header: Title + Authors + Buttons in compact layout */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
-          <div className="flex-1">
-            <div className="flex items-center gap-4 mb-2 text-xs text-muted-foreground">
-              {["Intuitive Surgical", "NVIDIA", "Johns Hopkins University"].map((inst, i) => (
-                <span key={inst} className="font-medium uppercase tracking-wide">
-                  {inst}{i < 2 && <span className="ml-4">·</span>}
-                </span>
-              ))}
-            </div>
-            <h1 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-2">
-              Surgverse: Video World Foundation Models for Surgery
-            </h1>
-            <p className="text-sm text-muted-foreground max-w-2xl">
-              Augmented Situational Awareness and Dexterity in Robot-Assisted Surgeries through Foundation Model Post-Training
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2 lg:flex-col">
-            <a href="#paper" className="inline-flex items-center gap-1.5 px-4 py-2 bg-secondary text-secondary-foreground text-sm font-medium rounded-md hover:bg-secondary/90 transition-all">
-              <FileText className="w-4 h-4" /> Paper
-            </a>
-            <a href="#code" className="inline-flex items-center gap-1.5 px-4 py-2 bg-muted text-foreground text-sm font-medium rounded-md hover:bg-muted/70 transition-all">
-              <ExternalLink className="w-4 h-4" /> Code
-            </a>
-          </div>
-        </div>
-
-        {/* Video Demos */}
+      {/* Video Demos Section */}
+      <div className="max-w-7xl mx-auto px-4 lg:px-8 pb-12">
         <div className="space-y-6">
           {/* Future Prediction */}
           <div>
