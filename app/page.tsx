@@ -6,8 +6,6 @@ import FrameworkSection from "@/components/framework-section"
 import ResultsSection from "@/components/results-section"
 import MetricsSection from "@/components/metrics-section"
 import ApplicationsSection from "@/components/applications-section"
-import TechnicalSection from "@/components/technical-section"
-import FutureDirectionsSection from "@/components/future-directions"
 import ResultsTableSection from "@/components/results-table-section"
 import CitationSection from "@/components/citation-section"
 import Footer from "@/components/footer"
@@ -22,8 +20,6 @@ export default function Home() {
       <ResultsSection />
       <MetricsSection />
       <ApplicationsSection />
-      <TechnicalSection />
-      <FutureDirectionsSection />
       <ResultsTableSection />
       <CitationSection />
       <Footer />
