@@ -100,9 +100,7 @@ export default function HeroSection() {
         {/* Action buttons */}
         <div className="flex flex-wrap gap-4 mb-12">
           <a
-            href="/Intusurg_WFM.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#paper"
             className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white text-base font-medium rounded-lg hover:bg-teal-700 transition-all"
           >
             <FileText className="w-5 h-5" />
